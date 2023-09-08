@@ -17,7 +17,7 @@ describe('Open main page', () => {
     })
 
     it('autorization', () => {
-        cy.login(mail, pass);
+        cy.login(mail2, pass2);
         cy.contains('Добро пожаловать').should('be.visible');
     })
 
@@ -26,7 +26,7 @@ describe('Open main page', () => {
 describe('Actions with books', () => {
     beforeEach(() => {
         cy.visit('http://localhost:3000/');
-        cy.login(mail, pass);
+        cy.login(mail2, pass2);
     })
 
     it('add new Book', () => {
@@ -43,6 +43,8 @@ describe('Actions in Favorites', () => {
     beforeEach(() => {
         cy.visit('http://localhost:3000/');
         cy.login(mail, pass);
+        cy.addBook(generateName(10), generateName(20), generateName(10));
+        cy.addBook(generateName(10), generateName(20), generateName(10));
 
         cy.get('.btn-success').first().click();
         cy.get('.btn-success').last().click();
