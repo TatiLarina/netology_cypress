@@ -17,7 +17,7 @@ describe('Open main page', () => {
     })
 
     it('autorization', () => {
-        cy.login(mail2, pass2);
+        cy.login(mail, pass);
         cy.contains('Добро пожаловать').should('be.visible');
     })
 
@@ -26,7 +26,7 @@ describe('Open main page', () => {
 describe('Actions with books', () => {
     beforeEach(() => {
         cy.visit('http://localhost:3000/');
-        cy.login(mail2, pass2);
+        cy.login(mail, pass);
     })
 
     it('add new Book', () => {
